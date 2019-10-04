@@ -34,14 +34,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Future getProducts() async {
 
     /// Initialize the API
-    WooCommerceAPI wc_api = new WooCommerceAPI(
+    WooCommerceAPI wcapi = new WooCommerceAPI(
         "http://fatoudiagne.com",
         "ck_2465c09ebe5bdaf1d989bb57f2fd3cedc8b86dc4",
         "cs_bde8183e7074dac0b2f9e3394607b812e5922d74"
     );
     
     /// Get data using the endpoint
-    var p = await wc_api.getAsync("products");
+    var p = await wcapi.getAsync("products");
     return p;
   }
 
@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Image.network(s.data[index]["images"][0]["src"]),
                 ),
                 title: Text(s.data[index]["name"]),
-                subtitle: Text("Buy now for \$ " + s.data[index]["price"]),
+                subtitle: Text("Buy now for \€ " + s.data[index]["price"]),
               );
 
             }
